@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Fragment } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import CreateCompany from './pages/CreateCompany';
+import { CreateInvoice } from './pages/CreateInvoice';
+import { Home } from './pages/Home';
+import SearchCompany from './pages/SearchCompany';
+import SearchInvoice from './pages/SearchInvoice';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Navbar />
+      <Routes>
+        <Route element={<CreateCompany />} path="/create-comapny" />
+        <Route element={<CreateInvoice />} path="/create-invoice" />
+        <Route element={<SearchCompany />} path="/search-comapny" />
+        <Route element={<SearchInvoice />} path="/search-invoice" />
+        <Route element={<Home />} path="/" />
+
+      </Routes>
+
+    </Fragment>
   );
 }
 
